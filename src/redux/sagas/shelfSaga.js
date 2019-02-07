@@ -14,3 +14,8 @@ function* getItems() {
     console.log('shelf get request failed.', error);
     }
 }
+function* shelfSaga(){
+    yield takeLatest('FETCH_ITEMS', getItems );
+}
+
+export default shelfSaga;
