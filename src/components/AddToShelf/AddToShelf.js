@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class AddToShelf extends Component {
+class Shelf extends Component {
     constructor() {
         super();
 
@@ -21,4 +21,4 @@ class AddToShelf extends Component {
     }
 }
 
-export default AddToShelf;
+export default Shelf;

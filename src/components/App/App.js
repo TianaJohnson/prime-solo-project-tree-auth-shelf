@@ -17,7 +17,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 
-import AddToShelf from '../AddToShelf/AddToShelf.js';
+import Shelf from '../AddToShelf/AddToShelf.js';
 
 import './App.css';
 
@@ -58,7 +58,7 @@ class App extends Component {
               component={InfoPage}
             />
 
-            <ProtectedRoute exact path="/add" component={AddToShelf}/>
+            <ProtectedRoute exact path="/add" component={Shelf}/>
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
