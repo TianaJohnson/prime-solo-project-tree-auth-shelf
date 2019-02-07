@@ -24,7 +24,13 @@ class Shelf extends Component {
                         </tr>
                     </thead>
                    <tbody>
-
+                        {this.props.reduxStore.shelf.map(item => {
+                            return <tr>
+                                        <td>{item.description}</td>
+                                        <td><img src={item.image} alt={item.description}/></td>
+                                        <td><button>DELETE</button></td>
+                                    </tr>
+                        })}
                    </tbody>
                     
                 </table>
