@@ -15,7 +15,6 @@ router.get('/', (req, res) => {
         console.log('Something went wrong in GET shelf', error);
         res.sendStatus(500);
     })
- // For testing only, can be removed
 });
 
 
