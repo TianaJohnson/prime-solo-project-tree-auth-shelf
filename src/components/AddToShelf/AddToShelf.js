@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
 class AddToShelf extends Component {
     constructor() {
@@ -16,7 +17,7 @@ class AddToShelf extends Component {
             ...this.state,
             description: event.target.value,
         });
-        console.log(this.state.description);
+        //console.log(this.state.description);
         
     }
 
@@ -26,8 +27,15 @@ class AddToShelf extends Component {
             ...this.state,
             image_url: event.target.value,
         });
-        console.log(this.state.image_url);
+        //console.log(this.state.image_url);
         
+    }
+
+    // Runs when submit is clicked
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const action = {type: 'ADD_ITEMS', payload: this.state}
+        this.props.dispatch(action);
     }
 
     handleBackClick = () => {
@@ -37,10 +45,10 @@ class AddToShelf extends Component {
         return (
             <div>
                 <h3>This page will add to the shelf</h3>
-                {JSON.stringify(this.state)}
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleDescriptionChange} type="text" placeholder="description"/>
-                    <input onchange={this.handleImageChange} type="text" placeholder="image url"/>
+                    <input onChange={this.handleImageChange} type="text" placeholder="image url"/>
+                    <button>Submit</button>
                 </form>
                 <button onClick={this.handleBackClick}>BACK</button>
             </div>
@@ -48,4 +56,4 @@ class AddToShelf extends Component {
     }
 }
 
-export default AddToShelf;
+export default connect()(AddToShelf);
