@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class Shelf extends Component {
+class AddToShelf extends Component {
     constructor() {
         super();
 
@@ -15,10 +15,11 @@ class Shelf extends Component {
     render(){
         return (
             <div>
-                <h3>This is where an item will be added to the shelf</h3>
+                <h3>This page will add to the shelf</h3>
+
             </div>
         );
     }
 }
 
-export default Shelf;
+export default AddToShelf;
