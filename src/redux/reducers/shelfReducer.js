@@ -1,16 +1,14 @@
 //shelf reducer, returns item on shelf - Tiana and Julie
 
-const shelfReducer = (state = [], action) => {
+const shelfReducer = (state = ['1'], action) => {
     switch(action.type) {
         case 'GET_ITEMS':
             return action.payload;
         default:
-             return state;
+            return state;
     }
+    
+    
 };
-
-
-
-
 
 export default shelfReducer;
