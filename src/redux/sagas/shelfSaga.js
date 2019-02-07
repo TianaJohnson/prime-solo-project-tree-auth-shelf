@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-//generator function axio get- Tiana and Julia
+//generator function axio get- Tiana and Julie
 function* getItems() {
     try {
         const config = {
