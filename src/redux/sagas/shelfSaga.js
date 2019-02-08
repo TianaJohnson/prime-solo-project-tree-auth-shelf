@@ -8,11 +8,7 @@ function* getItems() {
             headers: { 'Content-Type': 'application/json' },
             withCredentials: true,
         };
-<<<<<<< HEAD
-        const response = yield axios.get('api/shelf', config);
-=======
         const response = yield axios.get('/api/shelf', config);   
->>>>>>> origin
         yield put({ type: 'GET_ITEMS', payload: response.data });
     } catch (error) {
         console.log('shelf get request failed.', error);
@@ -21,11 +17,11 @@ function* getItems() {
 
 function* addItems(action) {
     try {
-        yield axios.post('/items', action.payload );
+        yield axios.post('/api/shelf/items', action.payload );
         const nextAction = { type: 'FETCH_ITEMS' };
         yield put(nextAction);
     } catch (error) {
-        console.log('Problem with adding items');
+        console.log('Problem with adding items', error);
         alert('Something went wrong in addItems')
     }
 }

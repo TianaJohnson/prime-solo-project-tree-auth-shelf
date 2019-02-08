@@ -28,6 +28,8 @@ router.post('/items', (req, res, next) => {
             res.sendStatus(201);
         })
         .catch((err) => {
+            console.log('Something went wrong in post', err);
+            
             next(err);
         });
 });
