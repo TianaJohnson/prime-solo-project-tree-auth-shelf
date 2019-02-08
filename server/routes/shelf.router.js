@@ -8,13 +8,13 @@ const router = express.Router();
 router.get('/', (req, res) => {
     const queryText = `SELECT * FROM "item";`;
     pool.query(queryText)
-    .then((result) => {
-        res.send(result.rows)
-        console.log('result.rows:', result.rows);
-    }).catch((error) => {
-        console.log('Something went wrong in GET shelf', error);
-        res.sendStatus(500);
-    })
+        .then((result) => {
+            res.send(result.rows)
+            console.log('result.rows:', result.rows);
+        }).catch((error) => {
+            console.log('Something went wrong in GET shelf', error);
+            res.sendStatus(500);
+        })
 });
 
 
@@ -37,7 +37,14 @@ router.post('/items', (req, res, next) => {
  * Delete an item if it's something the logged in user added
  */
 router.delete('/:id', (req, res) => {
-
+    const queryText = `DELETE FROM "item" WHERE "id"=$1;`;
+    pool.query(queryText, [req.params.id])
+        .then(() => {
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log(`Problem with deleting items: ${error}`);
+            res.sendStatus(500);
+        });
 });
 
 

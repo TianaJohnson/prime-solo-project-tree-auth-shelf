@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 
 //generator function axio get- Tiana and Julie
 function* getItems() {
@@ -15,16 +15,20 @@ function* getItems() {
     }
 }
 
-function* postItems() {
+function* addItems(action) {
     try {
-
+        yield axios.post('/items', action.payload );
+        const nextAction = { type: 'FETCH_ITEMS' };
+        yield put(nextAction);
     } catch (error) {
-
+        console.log('Problem with adding items');
+        alert('Something went wrong in addItems')
     }
 }
 
 function* shelfSaga() {
     yield takeLatest('FETCH_ITEMS', getItems);
+    yield takeEvery('ADD_ITEMS', addItems);
 }
 
 
