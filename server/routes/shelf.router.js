@@ -15,7 +15,6 @@ router.get('/', (req, res) => {
             console.log('Something went wrong in GET shelf', error);
             res.sendStatus(500);
         })
-    // For testing only, can be removed
 });
 
 
@@ -29,6 +28,8 @@ router.post('/items', (req, res, next) => {
             res.sendStatus(201);
         })
         .catch((err) => {
+            console.log('Something went wrong in post', err);
+            
             next(err);
         });
 });
